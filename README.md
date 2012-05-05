@@ -1,4 +1,4 @@
-# <a name="title"></a> chef-rbenv_system_pkgs
+# <a name="title"></a> chef-rbenv_system_pkgs [![Build Status](https://secure.travis-ci.org/fnichol/chef-rbenv_system_pkgs.png?branch=master)](http://travis-ci.org/fnichol/chef-rbenv_system_pkgs)
 
 ## <a name="description"></a> Description
 
