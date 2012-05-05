@@ -111,7 +111,7 @@ Use this recipe explicitly if you only want access to the LWRPs provided.
 
 The base URL from which all tarball packages are available.
 
-The default is `"http://s3.amazonaws.com/fnichol/rbenv"`.
+The default is `"http://s3.amazonaws.com/rbenv-system-pkgs"`.
 
 ## <a name="lwrps"></a> Resources and Providers
 
