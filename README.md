@@ -100,10 +100,7 @@ cookbook ([rbenv][rbenv_cb]) not available on the community site.
 
 ### <a name="recipes-default"></a> default
 
-Installs the rbenv gem and initializes Chef to use the Lightweight Resources
-and Providers ([LWRPs][lwrp]).
-
-Use this recipe explicitly if you only want access to the LWRPs provided.
+...coming soon...
 
 ## <a name="attributes"></a> Attributes
 
