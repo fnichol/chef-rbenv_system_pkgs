@@ -7,6 +7,7 @@ version          "0.1.0"
 
 depends "ruby_build"
 depends "rbenv"
+depends "ark"
 
 recommends "java", "> 1.4.0"  # if using jruby, java is required on system
 

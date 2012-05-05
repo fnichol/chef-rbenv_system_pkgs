@@ -31,6 +31,7 @@ This cookbook depends on the following external cookbooks:
 
 * [ruby_build][ruby_build_cb]
 * [rbenv][rbenv_cb]
+* [ark][ark_cb]
 
 If you are installing [JRuby][jruby] then a Java runtime will need to be
 installed. The Opscode [java cookbook][java_cb] can be used on supported
@@ -140,6 +141,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+[ark_cb]:           http://community.opscode.com/cookbooks/ark
 [chef_repo]:        https://github.com/opscode/chef-repo
 [cheffile]:         https://github.com/applicationsonline/librarian/blob/master/lib/librarian/chef/templates/Cheffile
 [java_cb]:          http://community.opscode.com/cookbooks/java
