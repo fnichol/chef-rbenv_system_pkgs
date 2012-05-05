@@ -20,7 +20,7 @@
 #
 
 # mixin helpers for this recipe
-self.class.send(:include, Chef::RbenvSystemPkgs::RecipeHelpers)
+self.extend(Chef::RbenvSystemPkgs::RecipeHelpers)
 
 include_recipe "ark"
 
