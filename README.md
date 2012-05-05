@@ -111,6 +111,14 @@ The base URL from which all tarball packages are available.
 
 The default is `"http://s3.amazonaws.com/rbenv-system-pkgs"`.
 
+### <a name="attributes-rbenv-hook-resource"></a> rbenv_hook_resource
+
+The resource which occurs after rbenv is installed and intitialized. This
+resource will be subscribed to, ensuring that tarball packages are installed
+**before** a source compile is attempted.
+
+The default is `"bash[Initialize rbenv (system)]"`.
+
 ## <a name="lwrps"></a> Resources and Providers
 
 There are **no** resources and providers in this cookbook.

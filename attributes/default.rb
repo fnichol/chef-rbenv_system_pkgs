@@ -20,3 +20,4 @@
 #
 
 default['rbenv_system_pkgs']['root_url'] = "http://s3.amazonaws.com/rbenv-system-pkgs"
+default['rbenv_system_pkgs']['rbenv_hook_resource'] = "bash[Initialize rbenv (system)]"

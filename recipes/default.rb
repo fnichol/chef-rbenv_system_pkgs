@@ -26,7 +26,7 @@ include_recipe "ark"
 
 pkg_url_root        = node['rbenv_system_pkgs']['root_url'].sub(%r{/$}, '')
 rbenv_versions_path = "#{node['rbenv']['root_path']}/versions"
-rbenv_resource      = {:bash => "Initialize rbenv (system)"}
+rbenv_resource      = node['rbenv_system_pkgs']['rbenv_hook_resource']
 
 node['rbenv']['rubies'].each do |ruby_version|
   pkg_url = pkg_url_from_version(pkg_url_root, ruby_version)
