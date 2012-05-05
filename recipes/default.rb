@@ -28,7 +28,7 @@ pkg_url_root        = node['rbenv_system_pkgs']['root_url'].sub(%r{/$}, '')
 rbenv_versions_path = "#{node['rbenv']['root_path']}/versions"
 rbenv_resource      = node['rbenv_system_pkgs']['rbenv_hook_resource']
 
-node['rbenv']['rubies'].each do |ruby_version|
+Array(node['rbenv']['rubies']).each do |ruby_version|
   pkg_url = pkg_url_from_version(pkg_url_root, ruby_version)
 
   install_ruby_pkg_dependencies(ruby_version, rbenv_resource)
@@ -40,8 +40,17 @@ node['rbenv']['rubies'].each do |ruby_version|
 
     not_if  { ::File.directory? "#{rbenv_versions_path}/#{ruby_version}" }
     only_if %{curl -sLI #{pkg_url} | head -n 1 | grep -q ' 200 '}
-
     subscribes :put, resources(rbenv_resource), :immediately
+  end
+
+  ruby_block "update-java-alternatives-#{ruby_version}" do
+    block do
+      resources("ruby_block[update-java-alternatives]").run_action(:create)
+    end
+    action :nothing
+
+    only_if { ruby_version =~ /^jruby-/ }
+    subscribes :create, resources(rbenv_resource), :immediately
   end
 end
 
