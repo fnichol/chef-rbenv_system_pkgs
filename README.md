@@ -7,7 +7,47 @@ install.
 
 ## <a name="usage"></a> Usage
 
-...coming soon..
+Include `recipe[rbenv_system_pkgs]` in your run\_list and override the defaults
+you want changed. See [below](#attributes) for more details.
+
+**Note** if you use the default tarball package location frequently, please
+consider making a local or alternative mirror.
+
+## <a name="usage-hosting-tarballs"> Hosting Your Own Tarball Repo
+
+You can mirror some or all of the tarball pacakges on your own webserver by
+placing all tarball packages directly under the `root_url` attribute URL.
+
+## <a name="usage-creating-tarballs"> Creating Your Own Tarball Pacakges
+
+You can use the [ruby_build][ruby_build_cb] and [rbenv][rbenv_cb] cookbooks
+to compile your desired Ruby versions into a system-wide installation. Next
+create a tarball of the directory under the `versions/` directory. For example:
+
+    cd /usr/loca/rbenv/versions
+    tar cpf $tarball_name.tar 1.9.3-p194
+    gzip -9 $tarball_name.tar
+
+The tarball package name is of the following form:
+
+    rbenv-system-<platform>-<platform_version>-<ruby_version>-<arch>.tar.gz
+
+Where:
+
+* `<platform>` is the lowercase operating system name such as **ubuntu**. This
+  is the value of `node['platform']` in ohai.
+* `<platform_version>` is the version number of the operating system release
+  such as **10.04**. This is the value of `node['platform_version']` in ohai.
+* `<ruby_version>` is the name of the Ruby version directory that will be
+  extracted such as **1.9.3-p194**.
+* `<arch>` is the machine's architecture such as **x86_64**. This is the value
+  of `node['kernel']['machine']` in ohai.
+
+For example, the following are valid tarball package filenames:
+
+* `rbenv-system-ubuntu-10.04-1.9.3-p194-x86_64.tar.gz`
+* `rbenv-system-ubuntu-10.10-ree-1.8.7-2012.02-i686.tar.gz`
+* `rbenv-system-ubuntu-11.10-jruby-1.7.0-dev-x86_64.tar.gz`
 
 ## <a name="requirements"></a> Requirements
 
@@ -21,7 +61,7 @@ fine. File an [issue][issues] if this isn't the case.
 The following platforms have been tested with this cookbook, meaning that
 the recipes and LWRPs run on these platforms without error:
 
-* ubuntu (10.04)
+* ubuntu (10.04/10.10/11.04/11.10)
 
 Please [report][issues] any additional platforms so they can be added.
 
@@ -101,7 +141,10 @@ cookbook ([rbenv][rbenv_cb]) not available on the community site.
 
 ### <a name="recipes-default"></a> default
 
-...coming soon...
+Downloads and extracts each Ruby tarball if it exists under the
+[root_url](#attributes-root-url).
+
+Use this recipe if you hate waiting for your Ruby version to build.
 
 ## <a name="attributes"></a> Attributes
 
@@ -117,7 +160,7 @@ The resource which occurs after rbenv is installed and intitialized. This
 resource will be subscribed to, ensuring that tarball packages are installed
 **before** a source compile is attempted.
 
-The default is `"bash[Initialize rbenv (system)]"`.
+The default is `"log[rbenv-post-init-system]"`.
 
 ## <a name="lwrps"></a> Resources and Providers
 
