@@ -3,7 +3,13 @@
 ## <a name="description"></a> Description
 
 Installs pre-built [rbenv][rbenv_site] Ruby version tarballs in a system
-install.
+install. It does this by subscribing to an rbenv post-init hook resource in
+the [rbenv][rbenv_cb] cookbook and extracting the tarball packages into the
+`versions/` directory before rbenv tries to build any Ruby versions. With
+the directory pre-existing a source compile will not be initiated. This
+cookbook only supports rbenv installed system-wide because the install path
+is known and likely to not break (since the build target path and extraction
+path match).
 
 ## <a name="usage"></a> Usage
 
