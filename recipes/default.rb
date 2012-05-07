@@ -33,7 +33,8 @@ Array(node['rbenv']['rubies']).each do |ruby_version|
 
   install_ruby_pkg_dependencies(ruby_version, rbenv_resource)
 
-  ark ruby_version do
+  ark "rbenv Ruby #{ruby_version} system tarball package" do
+    name    ruby_version
     path    rbenv_versions_path
     url     pkg_url
     action  :nothing
