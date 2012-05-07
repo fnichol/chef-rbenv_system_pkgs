@@ -19,12 +19,12 @@ you want changed. See [below](#attributes) for more details.
 **Note** if you use the default tarball package location frequently, please
 consider making a local or alternative mirror.
 
-## <a name="usage-hosting-tarballs"> Hosting Your Own Tarball Repo
+## <a name="usage-hosting-tarballs"></a> Hosting Your Own Tarball Repo
 
 You can mirror some or all of the tarball pacakges on your own webserver by
 placing all tarball packages directly under the `root_url` attribute URL.
 
-## <a name="usage-creating-tarballs"> Creating Your Own Tarball Pacakges
+## <a name="usage-creating-tarballs"></a> Creating Your Own Tarball Pacakges
 
 You can use the [ruby_build][ruby_build_cb] and [rbenv][rbenv_cb] cookbooks
 to compile your desired Ruby versions into a system-wide installation. Next
