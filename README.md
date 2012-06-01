@@ -211,7 +211,7 @@ limitations under the License.
 [librarian]:        https://github.com/applicationsonline/librarian#readme
 [rbenv_cb]:         http://fnichol.github.com/chef-rbenv
 [rbenv_site]:       https://github.com/sstephenson/rbenv
-[rbenvinator]:      https://github.com/fnichol/rbenvinator
+[rbenvinator]:      http://fnichol.github.com/rbenvinator/
 [ruby_build_cb]:    http://fnichol.github.com/chef-ruby_build
 
 [repo]:         https://github.com/fnichol/chef-rbenv_system_pkgs
