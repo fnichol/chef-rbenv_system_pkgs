@@ -55,6 +55,9 @@ For example, the following are valid tarball package filenames:
 * `rbenv-system-ubuntu-10.10-ree-1.8.7-2012.02-i686.tar.gz`
 * `rbenv-system-ubuntu-11.10-jruby-1.7.0-dev-x86_64.tar.gz`
 
+Check out the [rbenvinator][rbenvinator] project as a way to automate
+package building across multiple platoforms.
+
 ## <a name="requirements"></a> Requirements
 
 ### <a name="requirements-chef"></a> Chef
@@ -208,6 +211,7 @@ limitations under the License.
 [librarian]:        https://github.com/applicationsonline/librarian#readme
 [rbenv_cb]:         http://fnichol.github.com/chef-rbenv
 [rbenv_site]:       https://github.com/sstephenson/rbenv
+[rbenvinator]:      https://github.com/fnichol/rbenvinator
 [ruby_build_cb]:    http://fnichol.github.com/chef-ruby_build
 
 [repo]:         https://github.com/fnichol/chef-rbenv_system_pkgs
