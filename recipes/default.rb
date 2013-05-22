@@ -29,6 +29,10 @@ rbenv_versions_path = "#{node['rbenv']['root_path']}/versions"
 rbenv_resource      = node['rbenv_system_pkgs']['rbenv_hook_resource']
 
 Array(node['rbenv']['rubies']).each do |ruby_version|
+  if ruby_version.is_a?(Hash)
+    ruby_version = ruby_version[:name]
+  end
+
   pkg_url = pkg_url_from_version(pkg_url_root, ruby_version)
 
   install_ruby_pkg_dependencies(ruby_version, rbenv_resource)
